@@ -20,30 +20,30 @@ function UserController() {
   }
 
   async function save(req, res) {
-    
     const body = req.body;
-
-    if (body.password != body.confirm_password) {
+    
+    if ((body.password != body.password_confirmation) || (body.password.length < 1 && body.password_confirmation.length < 1)) {
       res.render('users/create', {
         error: {
           message: 'Os campos senha e confirmar senha são diferentes.'
         }
       });
-    }
+    } else{
 
-    const hashed_password = await bcrypt.hash(req.body.password, 10);
+      const hashed_password = await bcrypt.hash(req.body.password, 10);
 
-    const user = {
-      name: req.body.name,
-      email: req.body.email,
-      password: hashed_password,
-    }
+      const user = {
+        name: req.body.name,
+        email: req.body.email,
+        password: hashed_password,
+      }
 
-    try {
-      await User.create(user);
-      res.redirect('/users');
-    } catch (error) {
-      console.log(error);      
+      try {
+        await User.create(user);
+        res.redirect('/users');
+      } catch (error) {
+        console.log(error);      
+      }
     }
   }
 

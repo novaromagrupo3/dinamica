@@ -18,6 +18,9 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  password_confirmation: {
+    type: DataTypes.STRING,
+  },
   api_key: {
     type: DataTypes.STRING(64),
   },
