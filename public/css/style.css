@@ -46,3 +46,14 @@
     text-decoration-line: line-through;
     text-decoration-thickness: 2px;
 }
+
+.btn-primary {
+    background-color: #20c997;
+    border-color: #20c997;
+    
+}
+
+.btn-primary:hover {
+    background-color: #126d52;
+    border-color: #126d52; 
+}
