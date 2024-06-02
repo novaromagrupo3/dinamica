@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const flash = require('connect-flash');
 const app = express();
+const path = require('path');
 
 
 const { bootstrapApp } = require('./app/bootstrap');
@@ -13,6 +14,8 @@ const { bootstrapApp } = require('./app/bootstrap');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 bootstrapApp(app);
 
