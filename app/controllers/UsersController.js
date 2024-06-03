@@ -27,14 +27,14 @@ function UserController() {
           message: 'Os campos senha e confirmar senha são diferentes.'
         }
       });
-    } else{
-
+    } else {
       const hashed_password = await bcrypt.hash(req.body.password, 10);
 
       const user = {
         name: req.body.name,
         email: req.body.email,
         password: hashed_password,
+        active: req.body.active === '1' ? true : false,  // Adicionando o campo active
       }
 
       try {
@@ -69,9 +69,9 @@ function UserController() {
     const id = req.body.id;
 
     const user = {
-      title: req.body.title,
-      description: req.body.description,
-      done: req.body.done === '1' ? true : false
+      name: req.body.name,
+      email: req.body.email,
+      active: req.body.active === '1' ? true : false  // Processando o campo active
     };
 
     User.update(user, { where: { id: id } })
