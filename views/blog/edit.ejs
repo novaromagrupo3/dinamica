@@ -1,0 +1,25 @@
+<%- include("includes/header"); %>
+
+<div class="container">
+
+    <h3>Editar Tarefa</h3>
+    <hr>
+
+    <form method="POST" action="/blog/update">
+        <!-- <input type="hidden" name="_method" value="PUT"> -->
+        <input type="hidden" name="id" value="<%= post.id %>">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="titulo" name="title" aria-describedby="emailHelp" value="<%= post.title %>">
+        </div>
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Texto da Postagem</label>
+          <textarea class="form-control" id="texto" name="textPost"><%= post.textPost %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="/blog" class="btn btn-secondary">Cancelar</a>
+      </form>
+    
+</div>
+
+<%- include("includes/footer"); %>
