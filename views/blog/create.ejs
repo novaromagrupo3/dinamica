@@ -1,0 +1,23 @@
+<%- include("includes/header"); %>
+
+<div class="container">
+
+    <h3>Adicionar Tarefa</h3>
+    <hr>
+
+    <form method="POST" action="/blog/save">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" class="form-control" id="titulo" name="title" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="textPost" class="form-label">Texto da Postagem</label>
+          <textarea class="form-control" id="descricao" name="textPost"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="/" class="btn btn-secondary">Cancelar</a>
+    </form>
+    
+</div>
+
+<%- include("includes/footer"); %>
